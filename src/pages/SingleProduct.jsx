@@ -19,7 +19,7 @@ const SingleProduct = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/products/find/" + id);
+        const res = await axios.get("https://equipment-portal.herokuapp.com/api/products/find/" + id);
         setProduct(res.data);
       } catch (err) {
         console.log(err)
