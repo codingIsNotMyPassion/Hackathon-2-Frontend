@@ -9,7 +9,60 @@ import {
 } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import {Link} from "react-router-dom"
 
+//Component
+const Footer = () => {
+  return (
+    <Container>
+      <Left>
+        <Logo>Equipment portal</Logo>
+        <Desc>
+        Equipment portal rents products
+        </Desc>
+        <SocialContainer>
+          <SocialIcon color="3B5999">
+            <Facebook />
+          </SocialIcon>
+          <SocialIcon color="E4405F">
+            <Instagram />
+          </SocialIcon>
+          <SocialIcon color="55ACEE">
+            <Twitter />
+          </SocialIcon>
+          <SocialIcon color="E60023">
+            <Pinterest />
+          </SocialIcon>
+        </SocialContainer>
+      </Left>
+      <Center>
+        <Title>Useful Links</Title>
+        <List>
+          <ListItem><Link to="/">Home</Link></ListItem>
+          <ListItem><Link to="/cart">Cart</Link></ListItem>
+          <ListItem>Order Tracking</ListItem>
+          <ListItem>Terms</ListItem>
+        </List>
+      </Center>
+      <Right>
+        <Title>Contact</Title>
+        <ContactItem>
+          <Room style={{marginRight:"10px"}}/> 13 street, mumbai,india
+        </ContactItem>
+        <ContactItem>
+          <Phone style={{marginRight:"10px"}}/> +1 234 56 78
+        </ContactItem>
+        <ContactItem>
+          <MailOutline style={{marginRight:"10px"}} /> contact@equipmentportal.com
+        </ContactItem>
+      </Right>
+    </Container>
+  );
+};
+
+export default Footer;
+
+//Styled Component
 const Container = styled.div`
   display: flex;
   ${mobile({ flexDirection: "column" })}
@@ -79,58 +132,3 @@ const ContactItem = styled.div`
   display: flex;
   align-items: center;
 `;
-
-const Payment = styled.img`
-    width: 50%;
-`;
-
-const Footer = () => {
-  return (
-    <Container>
-      <Left>
-        <Logo>Equipment portal</Logo>
-        <Desc>
-        Equipment portal rents products
-        </Desc>
-        <SocialContainer>
-          <SocialIcon color="3B5999">
-            <Facebook />
-          </SocialIcon>
-          <SocialIcon color="E4405F">
-            <Instagram />
-          </SocialIcon>
-          <SocialIcon color="55ACEE">
-            <Twitter />
-          </SocialIcon>
-          <SocialIcon color="E60023">
-            <Pinterest />
-          </SocialIcon>
-        </SocialContainer>
-      </Left>
-      <Center>
-        <Title>Useful Links</Title>
-        <List>
-          <ListItem>Home</ListItem>
-          <ListItem>Cart</ListItem>
-          <ListItem>Order Tracking</ListItem>
-          <ListItem>Terms</ListItem>
-        </List>
-      </Center>
-      <Right>
-        <Title>Contact</Title>
-        <ContactItem>
-          <Room style={{marginRight:"10px"}}/> 13 street, mumbai,india
-        </ContactItem>
-        <ContactItem>
-          <Phone style={{marginRight:"10px"}}/> +1 234 56 78
-        </ContactItem>
-        <ContactItem>
-          <MailOutline style={{marginRight:"10px"}} /> contact@equipmentportal.com
-        </ContactItem>
-        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
-      </Right>
-    </Container>
-  );
-};
-
-export default Footer;

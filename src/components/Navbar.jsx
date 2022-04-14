@@ -6,6 +6,39 @@ import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+//Navabar component
+const Navbar = () => {
+  const quantity = useSelector(state=>state.cart.quantity)
+  return (
+    <Container>
+      <Wrapper>
+        <Left>
+          <SearchContainer>
+            <Input placeholder="Search" />
+            <Search style={{ color: "gray", fontSize: 16 }} />
+          </SearchContainer>
+        </Left>
+        
+        <Center>
+          <Logo><Link to="/">Equipment Portal</Link></Logo>
+        </Center>     
+        
+        <Right>
+        <Link to="/cart">
+          <MenuItem>
+            <Badge badgeContent={quantity} color="primary">
+              <ShoppingCartOutlined />
+            </Badge>
+          </MenuItem>
+        </Link>
+        </Right>
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default Navbar;
+
 //Styled component
 const Container = styled.div`
   height: 60px;
@@ -62,35 +95,3 @@ const MenuItem = styled.div`
   margin-left: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
-
-
-//Navabar component
-const Navbar = () => {
-  const quantity = useSelector(state=>state.cart.quantity)
-  return (
-    <Container>
-      <Wrapper>
-        <Left>
-          <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: 16 }} />
-          </SearchContainer>
-        </Left>
-        <Center>
-          <Logo>Equipment Portal</Logo>
-        </Center>
-        <Right>
-        <Link to="/cart">
-          <MenuItem>
-            <Badge badgeContent={quantity} color="primary">
-              <ShoppingCartOutlined />
-            </Badge>
-          </MenuItem>
-          </Link>
-        </Right>
-      </Wrapper>
-    </Container>
-  );
-};
-
-export default Navbar;

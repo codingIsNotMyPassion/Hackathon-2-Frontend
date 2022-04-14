@@ -1,9 +1,31 @@
 import {
-    ShoppingCartOutlined,
+    // ShoppingCartOutlined,
     SearchOutlined
   } from "@material-ui/icons";
 import { Link } from "react-router-dom";
   import styled from "styled-components";
+
+  const EquipmentItem = ({ item }) => {
+    return (
+      <Container>
+        <Circle/>
+        <Image src={item.img} />
+        <Info>
+          <Icon>
+            {/* Here Link redirects to SingleProduct page with id */}
+            <Link to={`/product/${item._id}`}>
+          <SearchOutlined/>
+          </Link>
+          </Icon>
+          {/* <Icon>
+            <ShoppingCartOutlined/>
+          </Icon> */}
+        </Info>
+      </Container>
+    );
+  };
+  
+  export default EquipmentItem;
   
   const Info = styled.div`
     opacity: 0;
@@ -64,26 +86,4 @@ import { Link } from "react-router-dom";
       background-color: #e9f5f5;
       transform: scale(1.1);
     }
-  `;
-  
-  const EquipmentItem = ({ item }) => {
-    return (
-      <Container>
-        <Circle/>
-        <Image src={item.img} />
-        <Info>
-          <Icon>
-            {/* Here Link redirects to SingleProduct page with id */}
-            <Link to={`/product/${item._id}`}>
-          <SearchOutlined/>
-          </Link>
-          </Icon>
-          <Icon>
-            <ShoppingCartOutlined/>
-          </Icon>
-        </Info>
-      </Container>
-    );
-  };
-  
-  export default EquipmentItem;
+  `; 
