@@ -14,7 +14,6 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="products" element={<AllProducts />} />
         <Route path="products/:category" element={<AllProducts />} />
         <Route path="product/:id" element={<SingleProduct />} />
         <Route path="*" element={<main style={{ padding: "1rem" }}><p>There's nothing here!</p></main>} />

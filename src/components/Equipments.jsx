@@ -17,8 +17,8 @@ const Equipments = ({category}) => {
     const getEquipments = async ()=>{
     try{
       const res = await axios.get(
-        category ? `http://localhost:5000/api/products`
-        :`http://localhost:5000/api/products/${category}`
+        category ? `https://equipment-portal.herokuapp.com/api/products`
+        :`https://equipment-portal.herokuapp.com/api/products/${category}`
         )
       setEquipments(res.data)
     }catch(err){
